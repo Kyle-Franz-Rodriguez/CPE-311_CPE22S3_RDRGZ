@@ -1,2 +1,2 @@
 # CPE-311_CPE22S3_RDRGZ
-GitHub Repository for CPE311
+Hi! Nice to meet you.
