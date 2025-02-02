@@ -58,12 +58,22 @@ def cross_river(land1, boat = [], land2 = [], counter = 0, capacity = 100):
                 counter += i.weight
                 land1.remove(i)
         # When the objects left in land1 are more than 100 when added
-        # to remove infinite loop
+        # to remove the infinite loops!!!
         if len(boat) == 1:
-            # The object on the boat exchange places with the first index in land1
+            # The object on the boat exchange places with the heaviest human in land1
+            for i in land1[:]:
+                if i.sentient == True:
+                    exchange = i
             land1.append(boat.pop())
-            boat.append(land1[0])
-            del land1[0]
+            boat.append(exchange)
+            land1.remove(exchange)
+            # Stop if every object on land2 is an item
+            if all(i.sentient == False for i in land2):
+                print([boat[0].name],"is crossing in a boat\n")
+                land2.append(boat.pop(0))
+                print("Only",len(land2),"is able to cross...\n")
+                showtotal(notcrossed, land1, land2)
+                break
             if (boat[0]).sentient == False:
                 # The boat contains an item that can't cross by itself
                 print((boat[0]).name, "can't cross alone!\n")
