@@ -94,9 +94,6 @@ def cross_river(land1, boat = [], land2 = [], counter = 0, capacity = 100):
             break
         # Check if done, so that no one comes back as the loop ends.
         if len(land2) == heads:
-            #Just add notcrossed to land1
-            for i in notcrossed:
-                land1.append(i)
             showtotal(notcrossed, land1, land2)
             print("!!!---All are able to cross---!!!\n")
             #check for people who are not able to cross
